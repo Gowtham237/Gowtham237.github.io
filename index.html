@@ -1,159 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gowtham M | Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-        body {
-            background-color: #f4f4f4;
-            color: #333;
-        }
+body{
+    background:#f4f6f9;
+    color:#333;
+    line-height:1.6;
+}
 
-        header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
+header{
+    background:#1e3a5f;
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
 
-        header h1 {
-            margin-bottom: 10px;
-        }
+header h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
 
-        nav {
-            background: #34495e;
-            text-align: center;
-            padding: 10px;
-        }
+header p{
+    font-size:18px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
-        }
+nav{
+    background:#27496d;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
 
-        section {
-            padding: 40px;
-            max-width: 1000px;
-            margin: auto;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
 
-        .card {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-        }
+nav a:hover{
+    color:#ffd166;
+}
 
-        .project {
-            margin-bottom: 15px;
-        }
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
 
-        footer {
-            text-align: center;
-            background: #2c3e50;
-            color: white;
-            padding: 15px;
-            margin-top: 20px;
-        }
+.card{
+    background:white;
+    padding:25px;
+    margin:20px 0;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
 
-        ul {
-            margin-left: 20px;
-        }
-    </style>
+h2{
+    color:#1e3a5f;
+    margin-bottom:15px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    background:#1e3a5f;
+    color:white;
+    padding:10px 15px;
+    border-radius:20px;
+}
+
+.project{
+    border-left:4px solid #1e3a5f;
+    padding-left:15px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    margin:8px 0;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#1e3a5f;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.btn:hover{
+    background:#27496d;
+}
+
+footer{
+    background:#1e3a5f;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:30px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Your Name</h1>
-        <p>Web Developer | Student | Programmer</p>
-    </header>
+<header>
+    <h1>Gowtham M</h1>
+    <p>2nd Year B.E. Computer Science and Engineering Student</p>
+</header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <section id="about">
-        <div class="card">
-            <h2>About Me</h2>
+<div class="container">
+
+    <section id="about" class="card">
+        <h2>About Me</h2>
+        <p>
+            Hello! I am <strong>Gowtham M</strong>, a second-year
+            B.E. Computer Science and Engineering student at
+            Anna University Regional Campus, Madurai.
+            I am passionate about programming, web development,
+            software development, and problem solving.
+            I enjoy learning new technologies and building projects
+            that improve my practical skills.
+        </p>
+    </section>
+
+    <section id="education" class="card">
+        <h2>Education</h2>
+        <p><strong>B.E. Computer Science and Engineering</strong></p>
+        <p>Anna University Regional Campus, Madurai</p>
+        <p>Currently Studying – 2nd Year</p>
+        <p>Expected Graduation: 2028</p>
+    </section>
+
+    <section id="skills" class="card">
+        <h2>Technical Skills</h2>
+
+        <div class="skills">
+            <span class="skill">C</span>
+            <span class="skill">C++</span>
+            <span class="skill">Java</span>
+            <span class="skill">Python</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">Data Structures</span>
+        </div>
+    </section>
+
+    <section id="projects" class="card">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Portfolio Website</h3>
             <p>
-                Hello! I am a passionate developer interested in web development,
-                programming, and technology. I enjoy building creative and useful applications.
+                Developed a responsive personal portfolio website using
+                HTML and CSS to showcase skills, education, and projects.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Student Management System</h3>
+            <p>
+                Developed a system using Java and MySQL for managing
+                student records efficiently.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Weather Application</h3>
+            <p>
+                Created a weather application that displays weather
+                information using APIs and web technologies.
             </p>
         </div>
     </section>
 
-    <section id="skills">
-        <div class="card">
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Java</li>
-            </ul>
-        </div>
+    <section id="certifications" class="card">
+        <h2>Certifications</h2>
+        <ul>
+            <li>NPTEL Courses</li>
+            <li>Python Programming Certification</li>
+            <li>Web Development Certification</li>
+            <li>Java Programming Certification</li>
+        </ul>
     </section>
 
-    <section id="projects">
-        <div class="card">
-            <h2>Projects</h2>
-
-            <div class="project">
-                <h3>Portfolio Website</h3>
-                <p>A personal portfolio website built using HTML and CSS.</p>
-            </div>
-
-            <div class="project">
-                <h3>Student Management System</h3>
-                <p>Developed using Java and MySQL to manage student records.</p>
-            </div>
-
-            <div class="project">
-                <h3>Weather App</h3>
-                <p>A web application that displays weather information using APIs.</p>
-            </div>
-        </div>
+    <section id="career" class="card">
+        <h2>Career Objective</h2>
+        <p>
+            Seeking opportunities to enhance my technical skills and gain
+            practical experience in software development. Eager to contribute
+            to innovative projects while continuously learning emerging
+            technologies.
+        </p>
     </section>
 
-    <section id="education">
-        <div class="card">
-            <h2>Education</h2>
-            <p><strong>Bachelor's Degree</strong></p>
-            <p>Your College Name</p>
-            <p>2022 - 2026</p>
-        </div>
+    <section id="contact" class="card contact">
+        <h2>Contact Information</h2>
+
+        <p><strong>Name:</strong> Gowtham M</p>
+        <p><strong>Email:</strong> mgowtham355@gmail.com</p>
+        <p><strong>Phone:</strong> +91 8838777685</p>
+
+        <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/m-gowtham-41a9ba380"
+               target="_blank">
+               View Profile
+            </a>
+        </p>
+
+        <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/Gowtham237"
+               target="_blank">
+               View GitHub
+            </a>
+        </p>
+
+        <a href="#" class="btn">Download Resume</a>
     </section>
 
-    <section id="contact">
-        <div class="card">
-            <h2>Contact</h2>
-            <p>Email: youremail@example.com</p>
-            <p>Phone: +91 XXXXX XXXXX</p>
-            <p>LinkedIn: linkedin.com/in/yourprofile</p>
-            <p>GitHub: github.com/yourusername</p>
-        </div>
-    </section>
+</div>
 
-    <footer>
-        <p>&copy; 2026 Your Name. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2026 Gowtham M | Portfolio Website</p>
+</footer>
 
 </body>
 </html>
