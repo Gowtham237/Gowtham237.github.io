@@ -1,682 +1,296 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gowtham M | Portfolio</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#f4f6f9;
-color:#333;
-line-height:1.6;
+background:#0a0a0a;
+color:#ffffff;
+line-height:1.7;
 }
 
+/* HEADER */
+
 header{
-background:#1e3a5f;
-color:white;
-padding:50px 20px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
+padding:40px;
+background:
+linear-gradient(
+135deg,
+#000000,
+#111111,
+#1a1a1a
+);
 }
 
 .profile-img{
-width:180px;
-height:180px;
+width:220px;
+height:220px;
 border-radius:50%;
 object-fit:cover;
-border:5px solid white;
-margin-bottom:15px;
+border:4px solid #fff;
+box-shadow:
+0 0 40px rgba(255,255,255,.15);
+margin-bottom:25px;
+transition:.4s;
+}
+
+.profile-img:hover{
+transform:scale(1.05);
 }
 
 header h1{
-font-size:40px;
+font-size:4rem;
+font-weight:900;
+letter-spacing:2px;
 margin-bottom:10px;
 }
 
 header p{
-font-size:18px;
+font-size:1.2rem;
+color:#cfcfcf;
+max-width:700px;
 }
 
+/* NAVBAR */
+
 nav{
-background:#27496d;
-padding:15px;
-text-align:center;
 position:sticky;
 top:0;
-z-index:999;
+z-index:1000;
+background:rgba(0,0,0,.9);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,.08);
+padding:18px;
+text-align:center;
 }
 
 nav a{
-color:white;
+color:#fff;
 text-decoration:none;
-margin:0 15px;
-font-weight:bold;
+margin:0 18px;
+font-weight:600;
+transition:.3s;
+position:relative;
 }
 
-nav a:hover{
-color:#ffd166;
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:2px;
+background:#fff;
+transition:.3s;
 }
+
+nav a:hover::after{
+width:100%;
+}
+
+/* CONTAINER */
 
 .container{
 width:90%;
-max-width:1200px;
+max-width:1300px;
 margin:auto;
-padding:20px;
+padding:60px 0;
 }
+
+/* GLASS CARD */
 
 .card{
-background:white;
-padding:25px;
-margin:20px 0;
-border-radius:12px;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+background:#111111;
+border:1px solid rgba(255,255,255,.08);
+padding:35px;
+margin-bottom:30px;
+border-radius:24px;
+box-shadow:
+0 10px 30px rgba(0,0,0,.4);
+transition:.4s;
 }
 
-h2{
-color:#1e3a5f;
-margin-bottom:15px;
+.card:hover{
+transform:translateY(-5px);
 }
+
+.card h2{
+font-size:2rem;
+font-weight:800;
+margin-bottom:20px;
+color:#fff;
+}
+
+/* ABOUT */
+
+#aboutContent{
+font-size:1.05rem;
+color:#d1d1d1;
+}
+
+/* SKILLS */
 
 .skills{
 display:flex;
 flex-wrap:wrap;
-gap:10px;
+gap:15px;
 }
 
 .skill{
-background:#1e3a5f;
-color:white;
-padding:10px 15px;
-border-radius:20px;
+background:#ffffff;
+color:#000;
+padding:12px 22px;
+border-radius:50px;
+font-weight:700;
+font-size:14px;
+transition:.3s;
 }
 
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
+.skill:hover{
+transform:translateY(-3px);
 }
 
-.project-card{
-background:white;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
+/* PROJECTS */
 
-.project-card img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.project-content{
-padding:15px;
-}
-
+.projects-grid,
 .cert-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
 }
 
+.project-card,
 .cert-card{
-background:white;
-border-radius:12px;
+background:#111;
+border-radius:24px;
 overflow:hidden;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
 }
 
+.project-card:hover,
+.cert-card:hover{
+transform:translateY(-8px);
+box-shadow:
+0 20px 40px rgba(255,255,255,.08);
+}
+
+.project-card img,
 .cert-card img{
 width:100%;
-height:220px;
+height:240px;
 object-fit:cover;
 }
 
+.project-content,
 .cert-content{
-padding:15px;
+padding:25px;
 }
 
-.contact p{
-margin:8px 0;
+.project-content h3,
+.cert-content h3{
+font-size:1.4rem;
+margin-bottom:12px;
 }
+
+.project-content p,
+.cert-content p{
+color:#cfcfcf;
+}
+
+/* CONTACT */
+
+.contact p{
+margin:12px 0;
+font-size:1rem;
+color:#d4d4d4;
+}
+
+.contact a{
+color:#fff;
+font-weight:700;
+text-decoration:none;
+}
+
+.contact a:hover{
+text-decoration:underline;
+}
+
+/* BUTTON */
 
 .btn{
 display:inline-block;
-margin-top:15px;
-padding:10px 20px;
-background:#1e3a5f;
-color:white;
+padding:14px 28px;
+background:#fff;
+color:#000;
+font-weight:700;
+border-radius:50px;
 text-decoration:none;
-border-radius:5px;
+transition:.3s;
 }
 
 .btn:hover{
-background:#27496d;
+transform:translateY(-3px);
 }
 
+/* FOOTER */
+
 footer{
-background:#1e3a5f;
-color:white;
+padding:30px;
 text-align:center;
-padding:20px;
-margin-top:30px;
+background:#000;
+border-top:1px solid rgba(255,255,255,.08);
+color:#cfcfcf;
 }
+
+/* LOADER */
 
 .loader{
 text-align:center;
-padding:20px;
+padding:30px;
+color:#fff;
 font-size:18px;
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
 header h1{
-font-size:30px;
+font-size:2.5rem;
+}
+
+header p{
+font-size:1rem;
+}
+
+.profile-img{
+width:160px;
+height:160px;
 }
 
 nav a{
 display:block;
-margin:10px 0;
+margin:12px 0;
 }
 
-.profile-img{
-width:140px;
-height:140px;
+.card{
+padding:25px;
 }
 
 }
 
 </style>
-
-</head>
-<body>
-
-<header>
-
-<img
-id="profileImage"
-class="profile-img"
-src=""
-alt="Profile Image">
-
-<h1>Gowtham M</h1>
-
-<p>
-2nd Year B.E Computer Science and Engineering Student
-</p>
-
-</header>
-
-<nav>
-
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#certificates">Certificates</a>
-<a href="#contact">Contact</a>
-
-</nav>
-
-<div class="container">
-
-<section id="about" class="card">
-
-<h2>About Me</h2>
-
-<p id="aboutContent">
-
-Loading...
-
-</p>
-
-</section>
-
-<section id="education" class="card">
-
-<h2>Education</h2>
-
-<p><strong>B.E Computer Science and Engineering</strong></p>
-
-<p>Anna University Regional Campus, Madurai</p>
-
-<p>Currently Studying – 2nd Year</p>
-
-<p>Expected Graduation – 2028</p>
-
-</section>
-
-<section id="skills" class="card">
-
-<h2>Skills</h2>
-
-<div id="skillsContainer" class="skills">
-
-<div class="loader">
-Loading Skills...
-</div>
-
-</div>
-
-</section>
-
-<section id="projects" class="card">
-
-<h2>Projects</h2>
-
-<div
-id="projectsContainer"
-class="projects-grid">
-
-<div class="loader">
-Loading Projects...
-</div>
-
-</div>
-
-</section>
-
-<section id="certificates" class="card">
-
-<h2>Certificates</h2>
-
-<div
-id="certificatesContainer"
-class="cert-grid">
-
-<div class="loader">
-Loading Certificates...
-</div>
-
-</div>
-
-</section>
-
-<section id="contact" class="card contact">
-
-<h2>Contact Information</h2>
-
-<p>
-<strong>Name:</strong>
-Gowtham M
-</p>
-
-<p>
-<strong>Email:</strong>
-mgowtham355@gmail.com
-</p>
-
-<p>
-<strong>Phone:</strong>
-+91 8838777685
-</p>
-
-<p>
-
-<strong>LinkedIn:</strong>
-
-<a
-href="https://www.linkedin.com/in/m-gowtham-41a9ba380"
-target="_blank">
-
-View Profile
-
-</a>
-
-</p>
-
-<p>
-
-<strong>GitHub:</strong>
-
-<a
-href="https://github.com/Gowtham237"
-target="_blank">
-
-View GitHub
-
-</a>
-
-</p>
-
-</section>
-
-</div>
-
-<footer>
-
-<p>
-© 2026 Gowtham M | Portfolio Website
-</p>
-
-</footer>
-
-<script>
-
-/* =========================
-   SUPABASE CONFIG
-========================= */
-
-const SUPABASE_URL = "https://ujyrevtyjygbisushowt.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqeXJldnR5anlnYmlzdXNob3d0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTYyNjIsImV4cCI6MjA5NjU5MjI2Mn0.ns6NTn68jBh1BCM1Khnaao1thCk40Dylibu2WGFW2KY
-";
-
-const supabaseClient =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_ANON_KEY
-);
-
-/* =========================
-   LOAD ABOUT + PROFILE
-========================= */
-
-async function loadProfileAndAbout(){
-
-const { data, error } =
-await supabaseClient
-.from("about_me")
-.select("*")
-.single();
-
-if(error){
-console.log(error);
-return;
-}
-
-if(data){
-
-document
-.getElementById("aboutContent")
-.innerText =
-data.content || "No About Content";
-
-if(data.image_url){
-
-document
-.getElementById("profileImage")
-.src =
-data.image_url;
-
-}
-
-}
-
-}
-
-/* =========================
-   LOAD SKILLS
-========================= */
-
-async function loadSkills(){
-
-const { data, error } =
-await supabaseClient
-.from("skills")
-.select("*")
-.order("id");
-
-if(error){
-console.log(error);
-return;
-}
-
-const container =
-document.getElementById(
-"skillsContainer"
-);
-
-container.innerHTML = "";
-
-if(data.length === 0){
-
-container.innerHTML =
-"<p>No Skills Added</p>";
-
-return;
-
-}
-
-data.forEach(skill=>{
-
-container.innerHTML += `
-
-<span class="skill">
-
-${skill.skill_name}
-
-</span>
-
-`;
-
-});
-
-}
-
-/* =========================
-   LOAD PROJECTS
-========================= */
-
-async function loadProjects(){
-
-const { data, error } =
-await supabaseClient
-.from("projects")
-.select("*")
-.order(
-"id",
-{ascending:false}
-);
-
-if(error){
-console.log(error);
-return;
-}
-
-const container =
-document.getElementById(
-"projectsContainer"
-);
-
-container.innerHTML = "";
-
-if(data.length === 0){
-
-container.innerHTML =
-"<p>No Projects Added</p>";
-
-return;
-
-}
-
-data.forEach(project=>{
-
-container.innerHTML += `
-
-<div class="project-card">
-
-<img
-src="${
-project.image_url ||
-'https://via.placeholder.com/600x400'
-}"
-alt="Project Image">
-
-<div class="project-content">
-
-<h3>
-
-${project.name}
-
-</h3>
-
-<p>
-
-${project.description}
-
-</p>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-/* =========================
-   LOAD CERTIFICATES
-========================= */
-
-async function loadCertificates(){
-
-const { data, error } =
-await supabaseClient
-.from("certificates")
-.select("*")
-.order(
-"id",
-{ascending:false}
-);
-
-if(error){
-console.log(error);
-return;
-}
-
-const container =
-document.getElementById(
-"certificatesContainer"
-);
-
-container.innerHTML = "";
-
-if(data.length === 0){
-
-container.innerHTML =
-"<p>No Certificates Added</p>";
-
-return;
-
-}
-
-data.forEach(cert=>{
-
-container.innerHTML += `
-
-<div class="cert-card">
-
-<img
-src="${
-cert.image_url ||
-'https://via.placeholder.com/600x400'
-}"
-alt="Certificate">
-
-<div class="cert-content">
-
-<h3>
-
-${cert.created_name}
-
-</h3>
-
-<p>
-
-${cert.description}
-
-</p>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-/* =========================
-   REALTIME AUTO REFRESH
-========================= */
-
-supabaseClient
-.channel("portfolio-live")
-
-.on(
-"postgres_changes",
-{
-event:"*",
-schema:"public",
-table:"about_me"
-},
-()=>{
-loadProfileAndAbout();
-}
-)
-
-.on(
-"postgres_changes",
-{
-event:"*",
-schema:"public",
-table:"skills"
-},
-()=>{
-loadSkills();
-}
-)
-
-.on(
-"postgres_changes",
-{
-event:"*",
-schema:"public",
-table:"projects"
-},
-()=>{
-loadProjects();
-}
-)
-
-.on(
-"postgres_changes",
-{
-event:"*",
-schema:"public",
-table:"certificates"
-},
-()=>{
-loadCertificates();
-}
-)
-
-.subscribe();
-
-/* =========================
-   INITIAL LOAD
-========================= */
-
-loadProfileAndAbout();
-loadSkills();
-loadProjects();
-loadCertificates();
-
-</script>
-
-</body>
-</html>
