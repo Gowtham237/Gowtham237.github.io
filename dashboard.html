@@ -241,10 +241,12 @@ placeholder="Write About Me">
 </textarea>
 
 <button
+type="button"
 class="primary-btn"
 onclick="updateAbout()">
+upload profile image
 
-Save About
+
 
 </button>
 
@@ -411,49 +413,74 @@ window.location.href =
 /* PROFILE */
 
 async function uploadProfileImage(){
+  
+try{
 
 const file =
-document
-.getElementById("profile-input")
-.files[0];
+document.getElementById("profile-input").files[0];
 
 if(!file){
-alert("Select Image");
+alert("Please select an image");
 return;
 }
 
 const fileName =
-Date.now()+"-"+file.name;
+Date.now() + "-" + file.name;
 
-const {error} =
+const { data: uploadData, error: uploadError } =
 await supabaseClient
 .storage
 .from("profile-images")
-.upload(fileName,file);
+.upload(fileName, file, {
+upsert: true
+});
 
-if(error){
-alert(error.message);
+if(uploadError){
+console.error(uploadError);
+alert("Upload Failed: " + uploadError.message);
 return;
 }
 
-const {data} =
+const { data: publicData } =
 supabaseClient
 .storage
 .from("profile-images")
 .getPublicUrl(fileName);
 
+const imageUrl =
+publicData.publicUrl;
+
+const { error: dbError } =
 await supabaseClient
 .from("about_me")
 .update({
-image_url:data.publicUrl
+image_url: imageUrl
 })
-.eq("id",1);
+.eq("id", 1);
+
+if(dbError){
+alert("Database Error: " + dbError.message);
+return;
+}
 
 loadProfile();
 
-alert("Profile Updated");
+alert("Profile Image Uploaded Successfully");
 
 }
+catch(err){
+
+console.error(err);
+
+alert(
+"Unexpected Error: " +
+err.message
+);
+
+}
+
+}
+
 
 async function loadProfile(){
 
