@@ -364,9 +364,18 @@ Add Certificate
 
 /* LOGIN CHECK */
 
-if(!localStorage.getItem("isLoggedIn")){
-window.location.href="login.html";
+async function checkAuth(){
+
+const { data:{ session } } =
+await supabaseClient.auth.getSession();
+
+if(!session){
+   window.location.href="login.html";
 }
+
+}
+
+checkAuth();
 
 /* SUPABASE */
 
@@ -399,14 +408,11 @@ document
 
 /* LOGOUT */
 
-function logout(){
+async function logout(){
 
-localStorage.removeItem(
-"isLoggedIn"
-);
+await supabaseClient.auth.signOut();
 
-window.location.href =
-"login.html";
+window.location.href="login.html";
 
 }
 
