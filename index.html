@@ -587,21 +587,9 @@ const { data , error } =
 await supabaseClient
 .from("about_me")
 .select("*")
+.eq('id',1)
 .single();
 
-if(error){
-console.log(error);
-return;
-}
-
-if(data){
-
-document
-.getElementById("aboutContent")
-.innerText =
-data.content || "";
-
-if(data.image_url){
 
 document
 .getElementById("profileImage")
