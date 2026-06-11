@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gowtham M | Portfolio</title>
+<title>M. Gowtham | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -20,21 +20,18 @@ scroll-behavior:smooth;
 body{
 background:#050816;
 color:white;
-overflow-x:hidden;
 }
-
-/* Background Glow */
 
 body::before{
 content:'';
 position:fixed;
 width:500px;
 height:500px;
-background:#4f46e5;
-filter:blur(180px);
+background:#6d28ff;
+filter:blur(250px);
 top:-150px;
 left:-150px;
-opacity:.25;
+opacity:.4;
 z-index:-1;
 }
 
@@ -43,71 +40,78 @@ content:'';
 position:fixed;
 width:500px;
 height:500px;
-background:#9333ea;
-filter:blur(180px);
+background:#00bfff;
+filter:blur(250px);
 bottom:-150px;
 right:-150px;
-opacity:.25;
+opacity:.4;
 z-index:-1;
 }
 
-/* Hero */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.1);
+z-index:1000;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#00bfff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+}
 
 .hero{
 min-height:100vh;
 display:flex;
+align-items:center;
 justify-content:center;
-align-items:center;
-padding:40px;
-}
-
-.hero-content{
-display:flex;
-align-items:center;
+padding:100px 10%;
 gap:60px;
 flex-wrap:wrap;
-max-width:1200px;
 }
 
-.hero img{
-width:320px;
-height:420px;
-object-fit:cover;
-border-radius:30px;
-border:2px solid rgba(255,255,255,.15);
-box-shadow:
-0 0 25px #4f46e5,
-0 0 60px #9333ea;
-}
-
-.text{
+.hero-text{
 max-width:600px;
 }
 
-.text h1{
-font-size:4rem;
-font-weight:800;
-background:linear-gradient(90deg,#60a5fa,#a855f7);
+.hero-text h3{
+color:#00bfff;
+font-size:28px;
+}
+
+.hero-text h1{
+font-size:65px;
+background:linear-gradient(90deg,#00bfff,#b84dff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.text h2{
-font-size:1.3rem;
-font-weight:400;
-color:#cbd5e1;
-margin-top:10px;
-}
-
-.text p{
-margin-top:20px;
+.hero-text p{
+margin-top:15px;
 line-height:1.8;
-color:#94a3b8;
+color:#cfcfcf;
 }
 
-/* Buttons */
-
-.buttons{
+.btns{
 margin-top:30px;
 display:flex;
 gap:15px;
@@ -119,211 +123,258 @@ padding:14px 28px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
-transition:.3s;
 }
 
 .primary{
-background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+background:linear-gradient(90deg,#00bfff,#7a5cff);
 color:white;
 }
 
 .secondary{
-border:1px solid rgba(255,255,255,.2);
+border:1px solid #666;
 color:white;
-backdrop-filter:blur(10px);
 }
 
-.btn:hover{
-transform:translateY(-5px);
+.hero-img img{
+width:380px;
+height:380px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #6d28ff;
+box-shadow:0 0 50px #6d28ff;
 }
 
-/* Cards */
-
-.section{
-padding:80px 8%;
+section{
+padding:80px 10%;
 }
 
 .title{
-font-size:2.5rem;
+font-size:40px;
 margin-bottom:30px;
 text-align:center;
 }
 
-.glass{
+.card{
 background:rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(15px);
 padding:30px;
-border-radius:25px;
-box-shadow:0 0 30px rgba(0,0,0,.3);
+border-radius:20px;
+border:1px solid rgba(255,255,255,.1);
 }
 
-/* Skills */
-
 .skills{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-justify-content:center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
 }
 
 .skill{
-padding:12px 22px;
-border-radius:30px;
-background:linear-gradient(90deg,#2563eb,#9333ea);
-font-weight:600;
+background:rgba(255,255,255,.05);
+padding:20px;
+text-align:center;
+border-radius:15px;
 }
 
-/* Contact */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
 
-.contact{
+.project{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.contact-box{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:15px;
 text-align:center;
 }
-
-.contact p{
-margin:15px 0;
-font-size:18px;
-}
-
-/* Footer */
 
 footer{
 text-align:center;
 padding:30px;
-color:#94a3b8;
+color:#aaa;
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
-.hero img{
-width:260px;
-height:340px;
+.hero-text h1{
+font-size:45px;
 }
 
-.text h1{
-font-size:2.8rem;
+.hero-img img{
+width:280px;
+height:280px;
 }
 
-.hero-content{
-text-align:center;
-justify-content:center;
-}
-
-.buttons{
-justify-content:center;
+nav{
+flex-direction:column;
+gap:10px;
 }
 
 }
 
 </style>
 </head>
-
 <body>
+
+<nav>
+<div class="logo">Gowtham M</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-text">
 
-<img src="profile.jpg" alt="Gowtham M">
+<h3>Hello, I'm</h3>
 
-<div class="text">
+<h1>M. Gowtham</h1>
 
-<h1>Gowtham M</h1>
-
-<h2>Computer Science Engineering Student</h2>
+<h2>
+Aspiring Software Developer |
+Problem Solver |
+Future Full Stack Developer
+</h2>
 
 <p>
-Passionate Computer Science Engineering student interested in
-Web Development, Software Development and Modern Technologies.
-I enjoy building beautiful websites and solving real-world problems.
+Computer Science and Engineering Student at
+Anna University Regional Campus Madurai.
+Passionate about Software Development,
+Artificial Intelligence, Machine Learning,
+Database Management and Modern Web Technologies.
 </p>
 
-<div class="buttons">
+<div class="btns">
 
-<a href="https://www.linkedin.com/in/m-gowtham-41a9ba380" class="btn primary" target="_blank">
-LinkedIn
+<a href="#" class="btn primary">
+Download Resume
 </a>
 
-<a href="https://gowtham237.github.io" class="btn secondary" target="_blank">
-GitHub
+<a href="#contact" class="btn secondary">
+Contact Me
 </a>
 
 </div>
 
 </div>
 
+<div class="hero-img">
+<img src="profile.jpg" alt="Gowtham">
 </div>
 
 </section>
 
-<section class="section">
+<section id="about">
 
 <h2 class="title">About Me</h2>
 
-<div class="glass">
+<div class="card">
+
 <p>
-I am Gowtham M, a 2nd Year B.E Computer Science and Engineering student.
-I am passionate about programming, web development, UI/UX design and software engineering.
-I continuously learn new technologies and build projects to improve my skills.
+I am M. Gowtham, a Computer Science and Engineering
+student at Anna University Regional Campus Madurai.
+
+I enjoy solving real-world problems through technology,
+building projects, learning new technologies,
+and continuously improving my technical and analytical skills.
+
+My goal is to become a skilled software engineer and contribute to innovative technology solutions.
 </p>
+
 </div>
 
 </section>
 
-<section class="section">
+<section id="skills">
 
-<h2 class="title">Skills</h2>
-
-<div class="glass">
+<h2 class="title">Technical Skills</h2>
 
 <div class="skills">
 
+<div class="skill">Python</div>
+<div class="skill">C Programming</div>
 <div class="skill">HTML</div>
 <div class="skill">CSS</div>
 <div class="skill">JavaScript</div>
-<div class="skill">Python</div>
-<div class="skill">Java</div>
-<div class="skill">GitHub</div>
-<div class="skill">Web Development</div>
+<div class="skill">SQL Basics</div>
+<div class="skill">DBMS</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">Artificial Intelligence</div>
+<div class="skill">Problem Solving</div>
 
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>Portfolio Website</h3>
+<p>Personal portfolio website built using HTML, CSS and JavaScript.</p>
+</div>
+
+<div class="project">
+<h3>Future Projects</h3>
+<p>Projects can be updated later through Admin Dashboard version.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section">
+<section id="contact">
 
 <h2 class="title">Contact</h2>
 
-<div class="glass contact">
+<div class="contact-grid">
 
-<p>📧 mgowtham355@gmail.com</p>
+<div class="contact-box">
+<h3>Phone</h3>
+<p>+91 8838777685</p>
+</div>
 
-<p>📱 8838777685</p>
+<div class="contact-box">
+<h3>Email</h3>
+<p>mgowtham355@gmail.com</p>
+</div>
 
-<p>
-🔗
-<a href="https://www.linkedin.com/in/m-gowtham-41a9ba380" style="color:#60a5fa;">
-LinkedIn Profile
-</a>
-</p>
+<div class="contact-box">
+<h3>College</h3>
+<p>Anna University Regional Campus Madurai</p>
+</div>
 
-<p>
-💻
-<a href="https://gowtham237.github.io" style="color:#60a5fa;">
-GitHub Portfolio
-</a>
-</p>
+<div class="contact-box">
+<h3>Department</h3>
+<p>Computer Science and Engineering</p>
+</div>
 
 </div>
 
 </section>
 
 <footer>
-© 2025 Gowtham M | Portfolio
+© 2025 M. Gowtham | Portfolio Website
 </footer>
 
 </body>
