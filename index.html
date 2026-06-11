@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
 
 <style>
 
+/* CSS PART 2 INGA VARUM */
 *{
 margin:0;
 padding:0;
@@ -19,7 +21,8 @@ scroll-behavior:smooth;
 
 body{
 background:#050816;
-color:white;
+color:#fff;
+overflow-x:hidden;
 }
 
 body::before{
@@ -31,7 +34,7 @@ background:#6d28ff;
 filter:blur(250px);
 top:-150px;
 left:-150px;
-opacity:.4;
+opacity:.35;
 z-index:-1;
 }
 
@@ -44,71 +47,102 @@ background:#00bfff;
 filter:blur(250px);
 bottom:-150px;
 right:-150px;
-opacity:.4;
+opacity:.35;
 z-index:-1;
 }
+
+/* NAVBAR */
 
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
-padding:20px 10%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
-border-bottom:1px solid rgba(255,255,255,.1);
+border-bottom:1px solid rgba(255,255,255,.08);
 z-index:1000;
 }
 
 .logo{
 font-size:24px;
-font-weight:700;
-color:#00bfff;
+font-weight:800;
+background:linear-gradient(
+90deg,
+#00bfff,
+#b84dff
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 nav ul{
 display:flex;
-list-style:none;
 gap:25px;
+list-style:none;
 }
 
 nav ul li a{
-color:white;
 text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
 }
+
+nav ul li a:hover{
+color:#00bfff;
+}
+
+/* HERO */
 
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:100px 10%;
-gap:60px;
+padding:120px 8%;
+gap:80px;
 flex-wrap:wrap;
 }
 
 .hero-text{
-max-width:600px;
+max-width:650px;
 }
 
 .hero-text h3{
-color:#00bfff;
 font-size:28px;
+color:#00bfff;
+margin-bottom:10px;
 }
 
 .hero-text h1{
-font-size:65px;
-background:linear-gradient(90deg,#00bfff,#b84dff);
+font-size:70px;
+font-weight:800;
+line-height:1.1;
+background:linear-gradient(
+90deg,
+#00bfff,
+#b84dff
+);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.hero-text p{
+.hero-text h2{
 margin-top:15px;
+font-size:26px;
+font-weight:600;
+}
+
+.hero-text p{
+margin-top:20px;
+color:#d4d4d4;
 line-height:1.8;
-color:#cfcfcf;
+font-size:17px;
 }
 
 .btns{
@@ -123,93 +157,196 @@ padding:14px 28px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
+transition:.3s;
 }
 
 .primary{
-background:linear-gradient(90deg,#00bfff,#7a5cff);
+background:linear-gradient(
+90deg,
+#00bfff,
+#7a5cff
+);
 color:white;
 }
 
 .secondary{
-border:1px solid #666;
+border:1px solid rgba(255,255,255,.3);
 color:white;
+}
+
+.btn:hover{
+transform:translateY(-3px);
 }
 
 .hero-img img{
 width:380px;
 height:380px;
-object-fit:cover;
 border-radius:50%;
-border:5px solid #6d28ff;
-box-shadow:0 0 50px #6d28ff;
+object-fit:cover;
+border:5px solid #7a5cff;
+box-shadow:
+0 0 40px #7a5cff;
 }
 
+/* SECTION */
+
 section{
-padding:80px 10%;
+padding:90px 8%;
 }
 
 .title{
-font-size:40px;
-margin-bottom:30px;
 text-align:center;
+font-size:42px;
+margin-bottom:40px;
+font-weight:700;
 }
+
+/* GLASS CARD */
 
 .card{
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
 padding:30px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,.1);
+border-radius:25px;
 }
+
+/* SKILLS */
 
 .skills{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 }
 
 .skill{
 background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 padding:20px;
+border-radius:18px;
 text-align:center;
-border-radius:15px;
+font-weight:600;
+transition:.3s;
 }
+
+.skill:hover{
+transform:translateY(-5px);
+}
+
+/* PROJECTS */
 
 .projects{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
 gap:25px;
 }
 
-.project{
+.project-card{
 background:rgba(255,255,255,.05);
-padding:25px;
+backdrop-filter:blur(15px);
 border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
 }
+
+.project-card:hover{
+transform:translateY(-6px);
+}
+
+.project-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.project-content{
+padding:20px;
+}
+
+.project-content h3{
+margin-bottom:10px;
+}
+
+/* CERTIFICATES */
+
+.certificate-card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+}
+
+.certificate-card:hover{
+transform:translateY(-6px);
+}
+
+.certificate-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.cert-content{
+padding:20px;
+}
+
+/* CONTACT */
 
 .contact-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
 .contact-box{
 background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
 padding:25px;
-border-radius:15px;
+border-radius:20px;
 text-align:center;
+border:1px solid rgba(255,255,255,.08);
 }
 
-footer{
-text-align:center;
-padding:30px;
-color:#aaa;
+.contact-box a{
+color:#00bfff;
+text-decoration:none;
 }
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+color:#aaa;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* MOBILE */
 
 @media(max-width:768px){
 
+nav{
+flex-direction:column;
+gap:10px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
 .hero-text h1{
 font-size:45px;
+}
+
+.hero-text h2{
+font-size:20px;
 }
 
 .hero-img img{
@@ -217,165 +354,494 @@ width:280px;
 height:280px;
 }
 
-nav{
-flex-direction:column;
-gap:10px;
+.title{
+font-size:32px;
 }
 
 }
+  
 
 </style>
+
 </head>
+
 <body>
 
+<!-- HTML PART 1 INGA VARUM -->
 <nav>
-<div class="logo">Gowtham M</div>
+    <div class="logo">Gowtham M</div>
 
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="hero-text">
+    <div class="hero-text">
 
-<h3>Hello, I'm</h3>
+        <h3>Hello, I'm</h3>
 
-<h1>M. Gowtham</h1>
+        <h1>M. Gowtham</h1>
 
-<h2>
-Aspiring Software Developer |
-Problem Solver |
-Future Full Stack Developer
-</h2>
+        <h2>
+            Aspiring Software Developer |
+            Problem Solver |
+            Future Full Stack Developer
+        </h2>
 
-<p>
-Computer Science and Engineering Student at
-Anna University Regional Campus Madurai.
-Passionate about Software Development,
-Artificial Intelligence, Machine Learning,
-Database Management and Modern Web Technologies.
-</p>
+        <p>
+            Computer Science and Engineering Student at
+            Anna University Regional Campus Madurai.
+        </p>
 
-<div class="btns">
+        <div class="btns">
 
-<a href="#" class="btn primary">
-Download Resume
-</a>
+            <a href="#" class="btn primary">
+                Download Resume
+            </a>
 
-<a href="#contact" class="btn secondary">
-Contact Me
-</a>
+            <a href="#contact" class="btn secondary">
+                Contact Me
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<div class="hero-img">
-<img src="profile.jpg" alt="Gowtham">
-</div>
+    <div class="hero-img">
+
+        <img
+        id="profileImage"
+        src=""
+        alt="Profile">
+
+    </div>
 
 </section>
+
+<!-- ABOUT -->
 
 <section id="about">
 
-<h2 class="title">About Me</h2>
+    <h2 class="title">About Me</h2>
 
-<div class="card">
+    <div class="card">
 
-<p>
-I am M. Gowtham, a Computer Science and Engineering
-student at Anna University Regional Campus Madurai.
+        <p id="aboutContent">
+            Loading...
+        </p>
 
-I enjoy solving real-world problems through technology,
-building projects, learning new technologies,
-and continuously improving my technical and analytical skills.
-
-My goal is to become a skilled software engineer and contribute to innovative technology solutions.
-</p>
-
-</div>
+    </div>
 
 </section>
+
+<!-- SKILLS -->
 
 <section id="skills">
 
-<h2 class="title">Technical Skills</h2>
+    <h2 class="title">Technical Skills</h2>
 
-<div class="skills">
+    <div
+    id="skillsContainer"
+    class="skills">
 
-<div class="skill">Python</div>
-<div class="skill">C Programming</div>
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">JavaScript</div>
-<div class="skill">SQL Basics</div>
-<div class="skill">DBMS</div>
-<div class="skill">Machine Learning</div>
-<div class="skill">Artificial Intelligence</div>
-<div class="skill">Problem Solving</div>
-
-</div>
+    </div>
 
 </section>
+
+<!-- PROJECTS -->
 
 <section id="projects">
 
-<h2 class="title">Projects</h2>
+    <h2 class="title">Projects</h2>
 
-<div class="projects">
+    <div
+    id="projectsContainer"
+    class="projects">
 
-<div class="project">
-<h3>Portfolio Website</h3>
-<p>Personal portfolio website built using HTML, CSS and JavaScript.</p>
-</div>
-
-<div class="project">
-<h3>Future Projects</h3>
-<p>Projects can be updated later through Admin Dashboard version.</p>
-</div>
-
-</div>
+    </div>
 
 </section>
 
+<!-- CERTIFICATES -->
+
+<section id="certificates">
+
+    <h2 class="title">Certificates</h2>
+
+    <div
+    id="certificatesContainer"
+    class="projects">
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
 <section id="contact">
 
-<h2 class="title">Contact</h2>
+    <h2 class="title">Contact</h2>
 
-<div class="contact-grid">
+    <div class="contact-grid">
 
-<div class="contact-box">
-<h3>Phone</h3>
-<p>+91 8838777685</p>
-</div>
+        <div class="contact-box">
 
-<div class="contact-box">
-<h3>Email</h3>
-<p>mgowtham355@gmail.com</p>
-</div>
+            <h3>Phone</h3>
 
-<div class="contact-box">
-<h3>College</h3>
-<p>Anna University Regional Campus Madurai</p>
-</div>
+            <p>
+                +91 8838777685
+            </p>
 
-<div class="contact-box">
-<h3>Department</h3>
-<p>Computer Science and Engineering</p>
-</div>
+        </div>
 
-</div>
+        <div class="contact-box">
+
+            <h3>Email</h3>
+
+            <p>
+                mgowtham355@gmail.com
+            </p>
+
+        </div>
+
+        <div class="contact-box">
+
+            <h3>LinkedIn</h3>
+
+            <p>
+
+                <a
+                href="https://www.linkedin.com/in/m-gowtham-41a9ba380"
+                target="_blank">
+
+                View Profile
+
+                </a>
+
+            </p>
+
+        </div>
+
+        <div class="contact-box">
+
+            <h3>GitHub</h3>
+
+            <p>
+
+                <a
+                href="https://github.com/Gowtham237"
+                target="_blank">
+
+                View GitHub
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 <footer>
-© 2025 M. Gowtham | Portfolio Website
+
+    © 2025 M. Gowtham | Portfolio Website
+
 </footer>
+
+  
+
+<script>
+
+/* JAVASCRIPT PART 3 INGA VARUM */
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://ujyrevtyjygbisushowt.supabase.co";   
+
+const SUPABASE_ANON_KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqeXJldnR5anlnYmlzdXNob3d0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTYyNjIsImV4cCI6MjA5NjU5MjI2Mn0.ns6NTn68jBh1BCM1Khnaao1thCk40Dylibu2WGFW2KY";
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_ANON_KEY
+);
+
+/* ABOUT + PROFILE */
+
+async function loadProfileAndAbout(){
+
+const { data , error } =
+await supabaseClient
+.from("about_me")
+.select("*")
+.single();
+
+if(error){
+console.log(error);
+return;
+}
+
+if(data){
+
+document
+.getElementById("aboutContent")
+.innerText =
+data.content || "";
+
+if(data.image_url){
+
+document
+.getElementById("profileImage")
+.src =
+data.image_url;
+
+}
+
+}
+
+}
+
+/* SKILLS */
+
+async function loadSkills(){
+
+const { data , error } =
+await supabaseClient
+.from("skills")
+.select("*")
+.order("id");
+
+if(error){
+console.log(error);
+return;
+}
+
+const container =
+document.getElementById(
+"skillsContainer"
+);
+
+container.innerHTML = "";
+
+data.forEach(skill=>{
+
+container.innerHTML += `
+
+<div class="skill">
+
+${skill.skill_name}
+
+</div>
+
+`;
+
+});
+
+}
+
+/* PROJECTS */
+
+async function loadProjects(){
+
+const { data , error } =
+await supabaseClient
+.from("projects")
+.select("*")
+.order(
+"id",
+{ascending:false}
+);
+
+if(error){
+console.log(error);
+return;
+}
+
+const container =
+document.getElementById(
+"projectsContainer"
+);
+
+container.innerHTML = "";
+
+data.forEach(project=>{
+
+container.innerHTML += `
+
+<div class="project-card">
+
+<img
+src="${
+project.image_url ||
+'https://via.placeholder.com/600x400'
+}"
+alt="Project">
+
+<div class="project-content">
+
+<h3>
+
+${project.name}
+
+</h3>
+
+<p>
+
+${project.description}
+
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* CERTIFICATES */
+
+async function loadCertificates(){
+
+const { data , error } =
+await supabaseClient
+.from("certificates")
+.select("*")
+.order(
+"id",
+{ascending:false}
+);
+
+if(error){
+console.log(error);
+return;
+}
+
+const container =
+document.getElementById(
+"certificatesContainer"
+);
+
+container.innerHTML = "";
+
+data.forEach(cert=>{
+
+container.innerHTML += `
+
+<div class="certificate-card">
+
+<img
+src="${
+cert.image_url ||
+'https://via.placeholder.com/600x400'
+}"
+alt="Certificate">
+
+<div class="cert-content">
+
+<h3>
+
+${cert.created_name}
+
+</h3>
+
+<p>
+
+${cert.description}
+
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* REALTIME UPDATE */
+
+supabaseClient
+.channel("portfolio-live")
+
+.on(
+"postgres_changes",
+{
+event:"*",
+schema:"public",
+table:"about_me"
+},
+()=>{
+loadProfileAndAbout();
+}
+)
+
+.on(
+"postgres_changes",
+{
+event:"*",
+schema:"public",
+table:"skills"
+},
+()=>{
+loadSkills();
+}
+)
+
+.on(
+"postgres_changes",
+{
+event:"*",
+schema:"public",
+table:"projects"
+},
+()=>{
+loadProjects();
+}
+)
+
+.on(
+"postgres_changes",
+{
+event:"*",
+schema:"public",
+table:"certificates"
+},
+()=>{
+loadCertificates();
+}
+)
+
+.subscribe();
+
+/* INITIAL LOAD */
+
+loadProfileAndAbout();
+loadSkills();
+loadProjects();
+loadCertificates();
+
+</script>
+  
+
+</script>
 
 </body>
 </html>
