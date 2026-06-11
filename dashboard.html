@@ -375,7 +375,6 @@ if(!session){
 
 }
 
-checkAuth();
 
 /* SUPABASE */
 
@@ -387,6 +386,7 @@ window.supabase.createClient(
 supabaseUrl,
 supabaseKey
 );
+   checkAuth();
 
 /* SECTION SWITCH */
 
