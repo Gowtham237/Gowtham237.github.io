@@ -434,9 +434,8 @@ font-size:32px;
 
     <div class="card">
 
-        <p id="aboutContent">
-            Loading...
-        </p>
+        document.getElementById("aboutContent").innerText =
+data.content;
 
     </div>
 
@@ -557,13 +556,36 @@ font-size:32px;
     © 2025 M. Gowtham | Portfolio Website
 
 </footer>
-
-  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
+const SUPABASE_URL = "YOUR_URL";
+const SUPABASE_ANON_KEY = "YOUR_KEY";
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_ANON_KEY
+);
+
+// all functions here...
+
+loadProfileAndAbout();
+loadSkills();
+loadProjects();
+loadCertificates();
+
+</script>
+
+  
+
+<script
+
 /* JAVASCRIPT PART 3 INGA VARUM */
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
 
 <script>
 
@@ -587,19 +609,19 @@ const { data , error } =
 await supabaseClient
 .from("about_me")
 .select("*")
-.eq('id',1)
+.eq("id",1)
 .single();
 
+if(error){
+console.log(error);
+return;
+}
 
-document
-.getElementById("profileImage")
-.src =
+document.getElementById("profileImage").src =
 data.image_url;
 
-}
-
-}
-
+document.getElementById("aboutContent").innerText =
+data.content;
 }
 
 /* SKILLS */
